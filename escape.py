@@ -1,0 +1,7 @@
+print("welcome to the escape room")
+print("there is one door in front of you")
+print("you have to enter the correct password to escape")
+print("you have infinte tries")
+print("the password is made up of 4 numbers")
+print("the numbers are between 1 and 9")
+print("good luck!")

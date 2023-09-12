@@ -6,3 +6,4 @@ def is_prime(n, i=2):
     if i * i > n:
         return True
     return is_prime(n, i + 1)
+
