@@ -27,6 +27,7 @@ def fight(food):
 def run():
     if random.random() < 0.5:
         return "You tried to run, but the zombies caught you. You died.", 0
+        
     else:
         return "You ran away from the zombies and escaped unharmed.", 0
 
