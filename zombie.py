@@ -30,13 +30,6 @@ def run():
     else:
         return "You ran away from the zombies and escaped unharmed.", 0
 
-def hide(food):
-    if random.random() < 0.2:
-        return "You hid from the zombies, but they found you. You died.", food
-    else:
-        food += 20
-        return "You hid from the zombies and they passed you by.", food
-
 def scavenge(food):
     if random.random() < 0.5:
         food += 30
@@ -46,18 +39,19 @@ def scavenge(food):
 
 def play_game():
     health = 100
-    zombies_left = 100
+    zombies_left = 1000
     food = 100
-    while health > 0 and zombies_left > 0:
+    days = 0
+    while health > 0 and zombies_left > 0 and days < 20:
+        days += 1
+        print(f"Day {days}: You have {health} health left, there are {zombies_left} zombies left, and you have {food} food left.")
         zombies = zombies_arrive()
         print(f"Zombies have arrived! There are {zombies} zombies.")
-        choice = input("What do you want to do? (fight/run/hide/scavenge) ")
+        choice = input("What do you want to do? (fight/run/scavenge) ")
         if choice == "fight":
             outcome, food = fight(food)
         elif choice == "run":
             outcome, food = run()
-        elif choice == "hide":
-            outcome, food = hide(food)
         elif choice == "scavenge":
             outcome, food = scavenge(food)
         else:
@@ -69,15 +63,17 @@ def play_game():
         elif outcome == "You fought the zombies and survived, but you were injured in the process.":
             zombies_left -= zombies
             health -= 20
-        elif outcome in ["You tried to run, but the zombies caught you. You died.", "You hid from the zombies, but they found you. You died."]:
+        elif outcome in ["You tried to run, but the zombies caught you. You died."]:
             health = 0
             break
-        print(f"You have {health} health left, there are {zombies_left} zombies left, and you have {food} food left.")
     if health <= 0:
         print("You have died. Game over.")
         end_game()
-    else:
+    elif zombies_left <= 0:
         print("You have killed all the zombies. Congratulations, you win!")
+        end_game()
+    else:
+        print("You have survived for 20 days. Game over.")
         end_game()
 
 def end_game():
@@ -87,4 +83,3 @@ def end_game():
     else:
         print("Thanks for playing!")
 play_game()
-
