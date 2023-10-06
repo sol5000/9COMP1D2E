@@ -1,3 +1,1 @@
-"""
-one is a testbench for thy code.
-"""
+grades = [66, 69, 96, 95, 73, 69, 28, 23, 67, 39, 31]
