@@ -1,1 +1,8 @@
-grades = [66, 69, 96, 95, 73, 69, 28, 23, 67, 39, 31]
+import math
+
+numerator = float(input("Please enter the numerator: "))
+denominator = float(input("Please enter the denominator: "))
+
+rationalized = numerator * math.sqrt(denominator) / denominator
+
+print("The rationalized denominator is:", rationalized)
