@@ -7,18 +7,17 @@ GREEN = (0, 255, 0)
 GRAY = (150, 150, 150)
 
 pygame.init()
-w, h = 640, 240
+w, h = 720, 480
 screen = pygame.display.set_mode((w, h))
 running = True
 
 module = sys.modules['__main__']
 path, name = os.path.split(module.__file__)
-path = os.path.join(path, 'bird.png')
+path = os.path.join(path, 'ak.png')
 
 img0 = pygame.image.load(path)
 img0.convert()
 
-# kai suck me balls
 rect0 = img0.get_rect()
 pygame.draw.rect(img0, GREEN, rect0, 1)
 
@@ -39,7 +38,6 @@ x_change = 0
 y_change = 0
 flipped = False
 
-# haha kai
 gravity = 0.5
 
 while running:
@@ -90,7 +88,6 @@ while running:
             d = math.sqrt(x ** 2 + y ** 2)
 
             angle = math.degrees(-math.atan2(y, x))
-            scale = abs(5 * d / w)
             img = pygame.transform.rotozoom(img0, angle, scale)
             rect = img.get_rect()
             rect.center = center
@@ -116,7 +113,6 @@ while running:
     else:
         y_change = 0
 
-    # hehe kai 
     y_change += gravity
 
     x_pos += x_change
