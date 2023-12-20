@@ -126,7 +126,7 @@ def game_loop(screen, clock, background_image, player_image, enemy_image, bullet
                 bullet_x = bullet["x"]
                 bullet_y = bullet["y"]
                 enemy_center_x = enemy_x + enemy_image.get_width() / 2
-                enemy_center_y = enemy_y + enemy_image.get_height() / 2
+                enemy_center_y = enemy_y + enemy_image.get_height() / 2,
                 direction_x = enemy_center_x - bullet_x
                 direction_y = enemy_center_y - bullet_y
                 distance = math.sqrt(direction_x ** 2 + direction_y ** 2)
